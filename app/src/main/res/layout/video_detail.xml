@@ -1,15 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <View
+        android:id="@+id/view_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black"
+        android:visibility="visible"
+        />
+
+    <LinearLayout
+        android:id="@+id/container_scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:background="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/video_player">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+
+    </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/video_player"
+        android:src="@android:color/holo_red_dark"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:src="@android:color/holo_green_light" />
+        />
+
+
+    <LinearLayout
+        android:id="@+id/video_player_title"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/white"
+        android:orientation="vertical"
+
+        >
+
+        <TextView
+            android:id="@+id/mini_player_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:text="Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo " />
+
+        <TextView
+            android:id="@+id/mini_player_subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:text="Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo Ola mundo" />
+
+    </LinearLayout>
+
+    <SurfaceView
+        android:id="@+id/surface_player"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        />
+
+    <View
+        android:id="@+id/view_frame"
+        android:background="@android:color/black"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"
+        app:layout_constraintEnd_toEndOf="@id/video_player"
+        app:layout_constraintStart_toStartOf="@id/video_player"
+        app:layout_constraintTop_toTopOf="@id/video_player" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/hide_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_keyboard_arrow_down_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="@id/video_player" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/playlist_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_playlist_add_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintEnd_toStartOf="@id/share_player" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/share_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_reply_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintEnd_toStartOf="@id/more_player" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/more_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more_vert_black_24dp"
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintEnd_toEndOf="@id/video_player" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/full_player"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_fullscreen_black_24dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"
+        app:layout_constraintEnd_toEndOf="@id/video_player" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/duration_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/full_player"
+        app:layout_constraintTop_toTopOf="@id/full_player"
+        app:layout_constraintEnd_toStartOf="@id/full_player" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:text="00:00"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:layout_marginBottom="10dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/full_player"
+        app:layout_constraintTop_toTopOf="@id/full_player"
+        app:layout_constraintStart_toStartOf="@id/hide_player" />
+
+
+    <ProgressBar
+        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"
+        app:layout_constraintEnd_toEndOf="@id/video_player"
+        app:layout_constraintStart_toStartOf="@id/video_player"
+        app:layout_constraintTop_toTopOf="@id/video_player" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/play_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        tools:alpha="1"
+        android:src="@drawable/ic_pause_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"
+        app:layout_constraintEnd_toEndOf="@id/video_player"
+        app:layout_constraintStart_toStartOf="@id/video_player"
+        app:layout_constraintTop_toTopOf="@id/video_player" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"
+        app:layout_constraintStart_toEndOf="@id/play_button"
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        android:src="@drawable/ic_skip_next_black_24dp" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:alpha="0"
+        tools:alpha="1"
+        app:layout_constraintBottom_toBottomOf="@id/video_player"
+        app:layout_constraintEnd_toStartOf="@id/play_button"
+        app:layout_constraintTop_toTopOf="@id/video_player"
+        android:src="@drawable/ic_skip_previous_black_24dp" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/video_play_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_play_arrow_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/video_player_title"
+        app:layout_constraintEnd_toStartOf="@id/video_cancel_button"
+        app:layout_constraintTop_toTopOf="@id/video_player_title" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/video_cancel_button"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_close_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@id/video_player_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/video_player_title" />
+
+
+    <androidx.appcompat.widget.AppCompatSeekBar
+        android:id="@+id/seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="0dp"
+        android:paddingEnd="0dp"
+        app:layout_constraintTop_toTopOf="@id/container_scroll"
+        app:layout_constraintBottom_toTopOf="@id/container_scroll" />
 
 </merge>
